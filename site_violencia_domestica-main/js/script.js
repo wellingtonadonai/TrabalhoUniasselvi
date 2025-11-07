@@ -1,4 +1,5 @@
-/* * JavaScript Moderno (Não Intrusivo)
+/* 
+ * JavaScript Moderno (Não Intrusivo)
  * Espera o HTML carregar antes de executar qualquer código.
  */
 document.addEventListener('DOMContentLoaded', () => {
@@ -29,10 +30,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // Botões de Saída Segura
     const btnSaidaSeguraFlutuante = document.getElementById('btn-saida-segura-flutuante');
     const btnSaidaSeguraBanner = document.getElementById('btn-saida-segura-banner');
-    
-    // FAQs (Todos os botões de toggle)
+
+    // FAQ Accordion
     const faqToggles = document.querySelectorAll('[id^="faq-toggle-"]');
 
+    // Carrossel
+    const carousel = document.getElementById('testimonial-carousel');
+    const prevButton = document.getElementById('prev-testimonial');
+    const nextButton = document.getElementById('next-testimonial');
+    const dotsContainer = document.getElementById('testimonial-dots');
 
     // --- 2. FUNÇÕES DE AÇÃO ---
 
@@ -47,24 +53,38 @@ document.addEventListener('DOMContentLoaded', () => {
     const call180 = () => makeEmergencyCall('a Central de Atendimento à Mulher', '180');
     const call181 = () => makeEmergencyCall('o Disque Denúncia', '181');
 
+    /** Exibe modal de ajuda */
     const showHelpModal = () => helpModal?.classList.remove(CLASS_HIDDEN);
     const closeHelpModal = () => helpModal?.classList.add(CLASS_HIDDEN);
 
-    const showSafetyPlan = () => {
-        closeHelpModal();
-        safetyPlanSection?.classList.remove(CLASS_HIDDEN);
-        safetyPlanSection?.scrollIntoView({ behavior: 'smooth' });
+    /** Toggle Plano de Segurança com scroll suave */
+    const toggleSafetyPlan = () => {
+        if (!safetyPlanSection) return;
+
+        // Fecha modal se estiver aberto
+        if (helpModal && !helpModal.classList.contains(CLASS_HIDDEN)) {
+            helpModal.classList.add(CLASS_HIDDEN);
+        }
+
+        // Alterna visibilidade
+        safetyPlanSection.classList.toggle(CLASS_HIDDEN);
+
+        // Scroll suave se estiver visível
+        if (!safetyPlanSection.classList.contains(CLASS_HIDDEN)) {
+            safetyPlanSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
     };
 
+    /** Saída segura do site */
     const safeExit = () => {
         window.open('https://www.google.com', '_blank');
         document.body.innerHTML = "Saindo...";
     };
 
+    /** Abre mais informações em outra aba */
     const openMoreInfo = () => {
         window.open('https://www.gov.br/mulheres/pt-br/ligue180', '_blank');
     };
-
 
     // --- 3. EVENTOS ---
 
@@ -87,7 +107,13 @@ document.addEventListener('DOMContentLoaded', () => {
     btnModalAjuda?.addEventListener('click', showHelpModal);
     btnModalAjudaFooter?.addEventListener('click', showHelpModal);
     btnFecharModal?.addEventListener('click', closeHelpModal);
-    btnModalPlanoSeguranca?.addEventListener('click', showSafetyPlan);
+
+    if (btnModalPlanoSeguranca) {
+        btnModalPlanoSeguranca.addEventListener('click', toggleSafetyPlan);
+    } else {
+        console.error('Botão Plano de Segurança não encontrado!');
+    }
+
     btnModalMaisInfo?.addEventListener('click', openMoreInfo);
 
     // FAQ Accordion
@@ -117,16 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-
-    // ======================================================
-    // === LÓGICA ATUALIZADA DO CARROSSEL DE DEPOIMENTOS ===
-    // ======================================================
-
-    const carousel = document.getElementById('testimonial-carousel');
-    const prevButton = document.getElementById('prev-testimonial');
-    const nextButton = document.getElementById('next-testimonial');
-    const dotsContainer = document.getElementById('testimonial-dots');
-
+    // --- 4. CARROSSEL DE DEPOIMENTOS ---
     if (carousel && prevButton && nextButton && dotsContainer) {
 
         const slides = carousel.children;
@@ -181,7 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
         function startAutoPlay() {
             autoPlayInterval = setInterval(() => {
                 goToSlide(currentIndex + 1);
-            }, 8000); // muda a cada 8s
+            }, 8000);
         }
 
         function restartAutoPlay() {
