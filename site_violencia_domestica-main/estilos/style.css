@@ -46,17 +46,69 @@
   animation: fadeIn 1.5s ease-in-out;
 }
 
-/* Hero com sobreposição moderna (tom atualizado) */
+/* HERO SECTION - Estilo aprimorado e intuitivo */
 .hero-image {
-  background-image: linear-gradient(
-      rgba(15, 118, 110, 0.85),
-      rgba(15, 118, 110, 0.85)
+  position: relative;
+  background-image: 
+    linear-gradient(
+      to bottom right,
+  rgba(0, 0, 0, 0.6),
+  rgba(0, 0, 0, 0.6)
     ),
-    url("https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=1472&q=80");
+    url("https://cdn.pixabay.com/photo/2019/10/15/11/51/tears-4551435_1280.jpg");
   background-size: cover;
   background-position: center;
-  color: white;
+  color: #ffffff;
+  text-align: center;
+  padding: 6rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  overflow: hidden;
+  border-bottom-left-radius: 60px;
+  border-bottom-right-radius: 60px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  animation: fadeInHero 1.5s ease-in-out;
 }
+
+/* Efeito de texto mais suave */
+.hero-image h1,
+.hero-image h2,
+.hero-image p {
+  z-index: 2;
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.5;
+  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Efeito de leve zoom na imagem de fundo */
+.hero-image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  background-attachment: fixed;
+  filter: brightness(0.8) contrast(1.1);
+  transform: scale(1.05);
+  z-index: 1;
+}
+
+/* Animação de aparição suave */
+@keyframes fadeInHero {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 /* ==============================================
    3. ELEMENTOS DE INTERFACE
