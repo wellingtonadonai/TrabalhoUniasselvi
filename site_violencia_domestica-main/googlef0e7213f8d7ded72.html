@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voz da Esperança - Combate à Violência Doméstica</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="shortcut icon" href="img/parar-a-violencia.png" type="image/x-icon">
+    <link rel="stylesheet" href="estilos/style.css">
+</head>
+<body class="bg-slate-50 font-sans">
+    
+    <div id="btn-saida-segura-flutuante" class="safety-exit fixed top-4 right-4 bg-slate-200 hover:bg-slate-300 transition-all duration-300 ease-in-out p-2 rounded-full cursor-pointer z-50" 
+         title="Saída Segura">
+        <i class="fas fa-door-open text-slate-600"></i>
+    </div>
+
+    <header class="hero-image text-white">
+        <div class="container mx-auto px-4 py-16 md:py-24">
+            <div class="max-w-3xl mx-auto text-center fade-in">
+                <img src="https://cdn-icons-png.flaticon.com/512/3184/3184933.png" alt="Mãos protegendo coração" class="h-20 mx-auto mb-6">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">Você não está sozinha(o)</h1>
+                <p class="text-xl mb-8">A violência doméstica não é apenas física. Se você está em uma situação de abuso, ajuda está disponível.</p>
+                
+                <div class="flex flex-col md:flex-row justify-center gap-4 mb-12">
+                    <button id="btn-ligar-190" class="emergency-btn bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-8 rounded-full flex items-center justify-center gap-2">
+                        <i class="fas fa-phone-alt"></i> LIGUE PARA A POLÍCIA (190)
+                    </button>
+                    <button id="btn-modal-ajuda" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-4 px-8 rounded-full flex items-center justify-center gap-2">
+                        <i class="fas fa-hands-helping"></i> PRECISO DE AJUDA
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-12">
+        
+        <section class="mb-16 fade-in">
+            <h2 class="text-3xl font-bold text-center mb-8 text-teal-800">O que é Violência Doméstica?</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <img src="img/fisica.jpeg" alt="Violência física" class="h-16 mx-auto mb-4">
+                    <h3 class="text-xl font-semibold mb-3 text-teal-900">Violência Física</h3>
+                    <p class="text-slate-700">Agressões como tapas, empurrões, socos, chutes ou uso de objetos que causem lesão física.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <img src="img/images.jpeg" alt="Violência psicológica" class="h-16 mx-auto mb-4">
+                    <h3 class="text-xl font-semibold mb-3 text-teal-900">Violência Psicológica</h3>
+                    <p class="text-slate-700">Comportamentos de controle, chantagem, humilhação, isolamento ou ameaças que geram sofrimento emocional.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <img src="img/pngtree-flat-h5-financial-stock-market-scenario-png-image_4101488.png" alt="Violência financeira" class="h-16 mx-auto mb-4">
+                    <h3 class="text-xl font-semibold mb-3 text-teal-900">Violência Financeira</h3>
+                    <p class="text-slate-700">Controle do dinheiro, impedimento de trabalhar ou destruição de bens e documentos pessoais.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-16 bg-teal-800 text-white rounded-lg p-8 fade-in">
+            <h2 class="text-3xl font-bold text-center mb-8">Estatísticas Alarmantes</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <div class="text-center">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3161/3161837.png" alt="Vítimas" class="h-16 mx-auto mb-4">
+                    <p class="text-4xl font-bold mb-2">37,5%</p>
+                    <p>das mulheres com 16 anos ou mais no Brasil relataram ter sofrido algum tipo de violência em 2025. <br><span class="text-xs">Fonte: Fórum Brasileiro de Segurança Pública / 2025</span></p>
+                </div>
+                
+                <div class="text-center">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3161/3161833.png" alt="Denúncias" class="h-16 mx-auto mb-4">
+                    <p class="text-4xl font-bold mb-2">+600 mil</p>
+                    <p>casos de violações de direitos foram registrados pelo Ligue 180 e Disque 100 até setembro de 2025. <br><span class="text-xs">Fonte: Ministério das Mulheres / 2025</span></p>
+                </div>
+                
+                <div class="text-center">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3161/3161839.png" alt="Feminicídio" class="h-16 mx-auto mb-4">
+                    <p class="text-4xl font-bold mb-2">4 por dia</p>
+                    <p>em média, quatro mulheres são vítimas de feminicídio diariamente no Brasil. <br><span class="text-xs">Fonte: Atlas da Violência / IPEA 2025</span></p>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="mb-16 fade-in">
+            <h2 class="text-3xl font-bold text-center mb-8 text-teal-800">Recursos de Ajuda</h2>
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="p-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <img src="https://cdn-icons-png.flaticon.com/512/3176/3176246.png" alt="Central de atendimento" class="h-12 mb-4">
+                            <h3 class="text-xl font-semibold mb-4 text-teal-700">Central de Atendimento à Mulher</h3>
+                            <p class="mb-4 text-slate-700">Ligue 180 para denunciar violência doméstica e receber apoio e orientação gratuita 24h.</p>
+                            <button id="btn-ligar-180" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-6 rounded-full">
+                                <i class="fas fa-phone mr-2"></i> Ligue 180
+                            </button>
+                        </div>
+                        <div>
+                            <img src="https://cdn-icons-png.flaticon.com/512/3176/3176255.png" alt="Disque denúncia" class="h-12 mb-4">
+                            <h3 class="text-xl font-semibold mb-4 text-teal-700">Disque Denúncia</h3>
+                            <p class="mb-4 text-slate-700">Denuncie anonimamente pelo número 181 ou pelo aplicativo “Proteja Brasil”.</p>
+                            <button id="btn-ligar-181" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-6 rounded-full">
+                                <i class="fas fa-phone mr-2"></i> Ligue 181
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<section id="depoimentos" class="mb-16 fade-in">
+  <h2 class="text-3xl font-bold text-center text-purple-800 mb-10">Depoimentos Reais de Superação</h2>
+
+  <div class="relative max-w-3xl mx-auto overflow-hidden rounded-2xl shadow-lg bg-white">
+    <!-- Slides -->
+    <div id="testimonial-carousel" class="flex transition-transform duration-700 ease-in-out">
+      
+      <!-- Depoimento 1 -->
+      <div class="min-w-full p-8 text-center">
+        <img src="img/pngtree-female-user-icon-in-outline-style-representing-a-business-sign-vector-png-image_12513255.png" alt="Depoimento" class="h-16 mx-auto mb-6">
+        <blockquote class="text-xl italic mb-6 text-slate-800">
+          "Eu achava que aguentar era prova de amor, até perceber que amor não dói. Quando liguei para o 180, descobri que tinha direitos e que merecia ajuda. Hoje estou reconstruindo minha vida."
+        </blockquote>
+        <p class="font-semibold text-slate-900">— Ana, 34 anos (2025)</p>
+      </div>
+
+      <!-- Depoimento 2 -->
+      <div class="min-w-full p-8 text-center">
+        <img src="img/user2.png" alt="Depoimento" class="h-16 mx-auto mb-6">
+        <blockquote class="text-xl italic mb-6 text-slate-800">
+          "Fui orientada pela Defensoria Pública a pedir medidas protetivas. Em dois dias, meu agressor foi afastado. Hoje entendo que denunciar foi o primeiro passo para recuperar minha liberdade."
+        </blockquote>
+        <p class="font-semibold text-slate-900">— Juliana, 42 anos (2025)</p>
+      </div>
+
+      <!-- Depoimento 3 -->
+      <div class="min-w-full p-8 text-center">
+        <img src="img/user3.png" alt="Depoimento" class="h-16 mx-auto mb-6">
+        <blockquote class="text-xl italic mb-6 text-slate-800">
+          "Achei que ninguém ia acreditar em mim, mas a equipe do 180 me acolheu e explicou tudo com paciência. Recebi atendimento psicológico gratuito e consegui um abrigo seguro para mim e meus filhos."
+        </blockquote>
+        <p class="font-semibold text-slate-900">— Carla, 29 anos (2025)</p>
+      </div>
+
+      <!-- Depoimento 4 -->
+      <div class="min-w-full p-8 text-center">
+        <img src="img/user4.png" alt="Depoimento" class="h-16 mx-auto mb-6">
+        <blockquote class="text-xl italic mb-6 text-slate-800">
+          "Demorei anos para entender que violência não é só física. Sofria humilhações e controle financeiro. Após buscar ajuda, hoje estudo, trabalho e sou dona das minhas escolhas novamente."
+        </blockquote>
+        <p class="font-semibold text-slate-900">— Renata, 37 anos (2025)</p>
+      </div>
+    </div>
+
+    <!-- Botões de navegação -->
+    <button id="prev-testimonial" class="absolute top-1/2 left-4 -translate-y-1/2 bg-purple-700 text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-purple-800 transition">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+
+    <button id="next-testimonial" class="absolute top-1/2 right-4 -translate-y-1/2 bg-purple-700 text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-purple-800 transition">
+      <i class="fas fa-chevron-right"></i>
+    </button>
+
+    <!-- Indicadores -->
+    <div class="flex justify-center space-x-2 mt-4 pb-4">
+      <span class="dot w-3 h-3 bg-purple-300 rounded-full cursor-pointer" data-index="0"></span>
+      <span class="dot w-3 h-3 bg-purple-300 rounded-full cursor-pointer" data-index="1"></span>
+      <span class="dot w-3 h-3 bg-purple-300 rounded-full cursor-pointer" data-index="2"></span>
+      <span class="dot w-3 h-3 bg-purple-300 rounded-full cursor-pointer" data-index="3"></span>
+    </div>
+  </div>
+</section>
+
+
+        <section id="safetyPlan" class="hidden mb-16 bg-teal-50 p-8 rounded-lg">
+            <h2 class="text-3xl font-bold text-center mb-8 text-teal-800">Plano de Segurança</h2>
+            <div class="max-w-3xl mx-auto">
+                <img src="https://cdn-icons-png.flaticon.com/512/3481/3481961.png" alt="Plano de segurança" class="h-16 mx-auto mb-6">
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold mb-3 text-teal-700">1. Em caso de emergência</h3>
+                    <ul class="list-disc pl-6 space-y-2 text-slate-700">
+                        <li>Tenha uma rota de fuga segura e combine um sinal de alerta com alguém de confiança.</li>
+                        <li>Guarde cópias de documentos importantes e um kit de emergência com dinheiro, chaves e medicamentos.</li>
+                        <li>Ensine seus filhos a como pedir ajuda de forma segura.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-16 fade-in">
+            <h2 class="text-3xl font-bold text-center mb-8 text-teal-800">Perguntas Frequentes</h2>
+            <img src="https://cdn-icons-png.flaticon.com/512/3176/3176276.png" alt="Perguntas frequentes" class="h-16 mx-auto mb-6">
+            <div class="max-w-3xl mx-auto space-y-4">
+                
+                <div class="bg-white p-5 rounded-lg shadow-md">
+                    <button id="faq-toggle-1" data-target="faq-content-1" class="w-full flex justify-between items-center text-left text-teal-900" aria-expanded="false">
+                        <span class="font-semibold text-lg">Como posso ajudar alguém que está sofrendo violência?</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+                    <div id="faq-content-1" class="mt-3 hidden text-slate-700">
+                        Escute sem julgar, ofereça apoio emocional e incentive a buscar ajuda profissional. Se houver risco imediato, ligue 190.
+                    </div>
+                </div>
+
+                <div class="bg-white p-5 rounded-lg shadow-md">
+                    <button id="faq-toggle-2" data-target="faq-content-2" class="w-full flex justify-between items-center text-left text-teal-900" aria-expanded="false">
+                        <span class="font-semibold text-lg">Quais são os meus direitos?</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+<div id="faq-content-2" class="mt-3 hidden text-slate-700">
+  <p>Você tem direito a:</p>
+  <ul class="list-disc list-inside mt-2">
+    <li><strong>Medidas protetivas de urgência</strong> — conforme art. 22 da Lei nº 11.340/2006, o juiz poderá, no prazo de até 48 h, conceder medidas para garantir sua segurança, como afastamento do agressor, proibição de contato, proibição de frequentar determinados locais, suspensão de porte de armas, entre outras. :contentReference[oaicite:1]{index=1}</li>
+    <li><strong>Acesso a abrigo temporário ou lugar seguro</strong> — a lei assegura que o Estado deve prover apoio e proteção à mulher em situação de violência doméstica ou familiar. :contentReference[oaicite:2]{index=2}</li>
+    <li><strong>Assistência jurídica gratuita</strong> — a mulher poderá recorrer à Defensoria Pública ou órgão de atendimento à mulher, ter acompanhamento em processos cíveis e criminais, sem custo, como previsto nos dispositivos de assistência à mulher da Lei Maria da Penha. :contentReference[oaicite:3]{index=3}</li>
+    <li><strong>Atendimento psicológico e social gratuito</strong> — a lei prevê políticas públicas integradas (saúde, assistência social, segurança) para mulheres em situação de violência doméstica e familiar. :contentReference[oaicite:4]{index=4}</li>
+    <li><strong>Garantia de direitos fundamentais</strong> — conforme art. 2º e art. 3º da Lei, toda mulher, independentemente de classe, raça, orientação sexual, idade ou renda, tem assegurados os direitos à vida, à saúde, à segurança, ao acesso à justiça, ao trabalho, à moradia, à educação, à liberdade e à dignidade. :contentReference[oaicite:5]{index=5}</li>
+    <li><strong>Direito de denunciar sem necessidade de provas imediatas</strong> — a lei considera que a violência doméstica e familiar contra a mulher é violação dos direitos humanos (art. 6º) e que a palavra da vítima tem valor. :contentReference[oaicite:6]{index=6}</li>
+    <li><strong>Aplicação independentemente de coabitação ou orientação sexual</strong> — segundo art. 5º da Lei, configura-se violência doméstica e familiar qualquer ação ou omissão baseada no gênero em âmbito doméstico, familiar ou em relação íntima de afeto, mesmo sem convivência no mesmo domicílio, e independentemente de orientação sexual. :contentReference[oaicite:7]{index=7}</li>
+  </ul>
+  <p class="mt-4">
+    A lei também determina que os órgãos públicos — como segurança pública, saúde, assistência social, educação, trabalho e habitação — atuem de forma articulada para prevenir, atender e proteger as mulheres em situação de violência doméstica e familiar. :contentReference[oaicite:8]{index=8}
+  </p>
+  <p class="mt-2 text-sm text-slate-600">
+    Fonte: Lei nº 11.340/2006 (Lei Maria da Penha) com redações e entendimentos atualizados em 2025.
+  </p>
+</div>
+
+                </div>
+
+<div class="bg-white p-5 rounded-lg shadow-md">
+  <button 
+    id="faq-toggle-3" 
+    data-target="faq-content-3" 
+    class="w-full flex justify-between items-center text-left text-teal-900" 
+    aria-expanded="false">
+      <span class="font-semibold text-lg">Como denunciar anonimamente?</span>
+      <i class="fas fa-chevron-down transition-transform duration-300"></i>
+  </button>
+
+  <div id="faq-content-3" class="mt-3 hidden text-slate-700 leading-relaxed">
+    <p>
+      A denúncia de violência doméstica, familiar ou contra mulheres pode ser feita de forma 
+      <strong>totalmente anônima e gratuita</strong>, sem a necessidade de identificação. 
+      O sigilo das informações é <strong>garantido por lei</strong> — ninguém saberá quem realizou a denúncia.
+    </p>
+
+    <ul class="list-disc list-inside mt-3 space-y-2">
+      <li>
+        📞 <strong>Disque 180</strong> — Central de Atendimento à Mulher. 
+        Funciona 24 horas por dia, em todo o Brasil, inclusive fins de semana e feriados. 
+        A ligação é gratuita e você pode denunciar, pedir orientação ou saber onde buscar ajuda.
+      </li>
+
+      <li>
+        ☎️ <strong>Disque 181</strong> — Canal oficial de denúncias anônimas. 
+        Pode ser usado para relatar casos de violência doméstica, abuso, exploração, 
+        tráfico de pessoas e outros crimes. O anonimato é garantido por lei (Lei nº 13.608/2018).
+      </li>
+
+      <li>
+        💻 <strong>Plataforma de Denúncias Online</strong> — também é possível registrar sua denúncia 
+        de forma segura e sigilosa pelo site oficial do Ministério dos Direitos Humanos e da Cidadania:
+        <a 
+          href="https://www.gov.br/mdh/pt-br/disque100" 
+          target="_blank" 
+          class="text-teal-700 underline hover:text-teal-900 font-semibold">
+          Acesse a plataforma de denúncias do Disque 100 / Disque 180
+        </a>.
+      </li>
+
+      <li>
+        📱 <strong>Aplicativos oficiais</strong> — alguns estados possuem apps próprios para denúncias, 
+        como o <em>“Proteja Brasil”</em> e o <em>“Denúncia Digital”</em>. 
+        Eles também garantem sigilo e podem ser baixados gratuitamente.
+      </li>
+    </ul>
+
+    <p class="mt-4">
+      ⚖️ <strong>Base legal:</strong> Lei nº 11.340/2006 (Lei Maria da Penha), 
+      Lei nº 13.608/2018 (Denúncias Anônimas) e Decreto nº 9.603/2018, 
+      que asseguram o direito ao sigilo e à proteção de quem denuncia atos de violência ou abuso.
+    </p>
+
+    <p class="mt-2 text-sm text-gray-600">
+      Em caso de emergência, ligue imediatamente para o <strong>190 (Polícia Militar)</strong>.
+    </p>
+  </div>
+</div>
+
+
+            </div>
+        </section>
+
+        <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-8 rounded flex justify-between items-center">
+            <button id="btn-saida-segura-banner" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-full">
+                <i class="fas fa-running mr-2"></i> Sair Agora
+            </button>
+        </div>
+    </main>
+
+    <footer class="bg-teal-900 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex space-x-4">
+                    <button id="btn-ligar-190-footer" class="bg-red-600 hover:bg-red-700 text-white p-3 rounded-full">
+                        <i class="fas fa-phone-alt"></i>
+                    </button>
+                    <button id="btn-ligar-180-footer" class="bg-teal-600 hover:bg-teal-700 text-white p-3 rounded-full">
+                        <i class="fas fa-phone-volume"></i>
+                    </button>
+                    <button id="btn-modal-ajuda-footer" class="bg-white hover:bg-slate-200 text-teal-900 p-3 rounded-full">
+                        <i class="fas fa-question"></i>
+                    </button>
+                </div>
+            </div>
+            <p class="text-center text-sm text-slate-300 mt-4">Dados atualizados em 2025 — Fonte: Fórum Brasileiro de Segurança Pública, IPEA, Ministério das Mulheres.</p>
+        </div>
+    </footer>
+
+    <div id="helpModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+        <div class="bg-white rounded-lg shadow-xl max-w-md w-full mx-4">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-2xl font-bold text-teal-800">Precisa de ajuda?</h3>
+                    <button id="btn-fechar-modal" class="text-slate-500 hover:text-slate-700">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <img src="https://cdn-icons-png.flaticon.com/512/3184/3184933.png" alt="Ajuda" class="h-16 mx-auto mb-6">
+                <div class="space-y-4">
+                    <button id="btn-modal-ligar-190" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-4 rounded flex items-center justify-center gap-2">
+                        <i class="fas fa-phone-alt"></i> Emergência (190)
+                    </button>
+                    <button id="btn-modal-ligar-180" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-4 rounded flex items-center justify-center gap-2">
+                        <i class="fas fa-phone-volume"></i> Central da Mulher (180)
+                    </button>
+                    <button id="btn-modal-plano-seguranca" class="w-full bg-teal-100 hover:bg-teal-200 text-teal-900 font-bold py-3 px-4 rounded flex items-center justify-center gap-2">
+                        <i class="fas fa-shield-alt"></i> Plano de Segurança
+                    </button>
+                    <button id="btn-modal-mais-info" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold py-3 px-4 rounded flex items-center justify-center gap-2">
+                        <i class="fas fa-info-circle"></i> Mais Informações
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/script.js" defer></script>
+</body>
+</html>

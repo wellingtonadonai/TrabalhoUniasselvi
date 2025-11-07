@@ -36,66 +36,51 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- 2. FUNÇÕES DE AÇÃO ---
 
-    /**
-     * Função reutilizável para confirmar e redirecionar chamadas.
-     * @param {string} serviceName - Nome do serviço (ex: 'a polícia')
-     * @param {string} phoneNumber - Número (ex: '190')
-     */
+    /** Confirma e redireciona chamadas de emergência */
     function makeEmergencyCall(serviceName, phoneNumber) {
-        // Usamos um modal customizado em vez de confirm()
-        // (Mas para este projeto, confirm() é aceitável se não tivermos um modal de confirmação)
         if (confirm(`Você será redirecionado para ligar para ${serviceName}. Deseja continuar?`)) {
             window.location.href = `tel:${phoneNumber}`;
         }
     }
 
-    // Funções de atalho para chamadas
     const callEmergency = () => makeEmergencyCall('a polícia', '190');
     const call180 = () => makeEmergencyCall('a Central de Atendimento à Mulher', '180');
     const call181 = () => makeEmergencyCall('o Disque Denúncia', '181');
 
-    // Funções do Modal
     const showHelpModal = () => helpModal?.classList.remove(CLASS_HIDDEN);
     const closeHelpModal = () => helpModal?.classList.add(CLASS_HIDDEN);
 
     const showSafetyPlan = () => {
-        closeHelpModal(); // Fecha o modal
+        closeHelpModal();
         safetyPlanSection?.classList.remove(CLASS_HIDDEN);
         safetyPlanSection?.scrollIntoView({ behavior: 'smooth' });
     };
 
-    // Função de Saída Segura
     const safeExit = () => {
-        // Redireciona para um site neutro em uma nova aba e apaga o histórico da aba atual
         window.open('https://www.google.com', '_blank');
-        // Para maior segurança, poderia tentar apagar o conteúdo da página atual:
-        // document.body.innerHTML = "Saindo...";
+        document.body.innerHTML = "Saindo...";
     };
 
-    // Função "Mais Informações"
     const openMoreInfo = () => {
-        // Link oficial do Gov.br
         window.open('https://www.gov.br/mulheres/pt-br/ligue180', '_blank');
     };
 
 
-    // --- 3. MAPEAMENTO DE EVENTOS (ADD EVENT LISTENERS) ---
+    // --- 3. EVENTOS ---
 
     // Saída Segura
     btnSaidaSeguraFlutuante?.addEventListener('click', safeExit);
     btnSaidaSeguraBanner?.addEventListener('click', safeExit);
 
-    // Chamadas de Emergência (190)
+    // Chamadas
     btnLigar190?.addEventListener('click', callEmergency);
     btnLigar190Footer?.addEventListener('click', callEmergency);
     btnModalLigar190?.addEventListener('click', callEmergency);
 
-    // Chamadas 180
     btnLigar180?.addEventListener('click', call180);
     btnLigar180Footer?.addEventListener('click', call180);
     btnModalLigar180?.addEventListener('click', call180);
 
-    // Chamada 181
     btnLigar181?.addEventListener('click', call181);
 
     // Modal
@@ -105,18 +90,17 @@ document.addEventListener('DOMContentLoaded', () => {
     btnModalPlanoSeguranca?.addEventListener('click', showSafetyPlan);
     btnModalMaisInfo?.addEventListener('click', openMoreInfo);
 
-    // Lógica do FAQ (Accordion)
+    // FAQ Accordion
     faqToggles.forEach(toggle => {
         toggle.addEventListener('click', () => {
             const targetId = toggle.getAttribute('data-target');
             const content = document.getElementById(targetId);
             const icon = toggle.querySelector('i.fas');
-
             if (!content) return;
 
             const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
 
-            // Fecha os outros
+            // Fecha outros
             faqToggles.forEach(otherToggle => {
                 if (otherToggle !== toggle) {
                     const otherTargetId = otherToggle.getAttribute('data-target');
@@ -126,15 +110,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
-            // Abre/fecha o clicado
+            // Alterna visibilidade
             content.classList.toggle(CLASS_HIDDEN);
             toggle.setAttribute('aria-expanded', !isExpanded);
             icon?.classList.toggle('rotate-180');
         });
     });
 
+
     // ======================================================
-    // === NOVA LÓGICA PARA O CARROSSEL DE DEPOIMENTOS ===
+    // === LÓGICA ATUALIZADA DO CARROSSEL DE DEPOIMENTOS ===
     // ======================================================
 
     const carousel = document.getElementById('testimonial-carousel');
@@ -142,56 +127,70 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextButton = document.getElementById('next-testimonial');
     const dotsContainer = document.getElementById('testimonial-dots');
 
-    // Verifica se os elementos do carrossel existem antes de executar
     if (carousel && prevButton && nextButton && dotsContainer) {
-        
+
         const slides = carousel.children;
         const totalSlides = slides.length;
         let currentIndex = 0;
+        let autoPlayInterval;
 
-        // --- Criar os Dots (bolinhas) ---
+        // Criação dos dots
         for (let i = 0; i < totalSlides; i++) {
             const dot = document.createElement('span');
-            dot.classList.add('dot', 'w-3', 'h-3', 'bg-teal-300', 'rounded-full', 'cursor-pointer');
+            dot.classList.add('dot', 'w-3', 'h-3', 'bg-teal-300', 'rounded-full', 'cursor-pointer', 'transition-all', 'duration-300');
             dot.setAttribute('data-index', i);
             dot.addEventListener('click', () => goToSlide(i));
             dotsContainer.appendChild(dot);
         }
-        
+
         const dots = dotsContainer.children;
 
-        // --- Função para ir para um slide ---
+        // Função para trocar de slide
         function goToSlide(index) {
             if (index < 0) index = totalSlides - 1;
             if (index >= totalSlides) index = 0;
 
+            carousel.style.transition = 'transform 0.6s ease-in-out';
             carousel.style.transform = `translateX(-${index * 100}%)`;
+
             currentIndex = index;
             updateDots();
         }
 
-        // --- Função para atualizar a bolinha ativa ---
+        // Atualiza dots ativos
         function updateDots() {
             for (let i = 0; i < dots.length; i++) {
-                dots[i].classList.remove('active', 'bg-teal-600');
+                dots[i].classList.remove('bg-teal-600');
                 dots[i].classList.add('bg-teal-300');
             }
-            dots[currentIndex].classList.add('active', 'bg-teal-600');
-            dots[currentIndex].classList.remove('bg-teal-300');
+            dots[currentIndex].classList.add('bg-teal-600');
         }
 
-        // --- Event Listeners dos botões ---
+        // Botões
         prevButton.addEventListener('click', () => {
             goToSlide(currentIndex - 1);
+            restartAutoPlay();
         });
 
         nextButton.addEventListener('click', () => {
             goToSlide(currentIndex + 1);
+            restartAutoPlay();
         });
 
-        // --- Iniciar o carrossel ---
-        goToSlide(0); // Garante que o primeiro slide e dot estejam ativos ao carregar
+        // Troca automática
+        function startAutoPlay() {
+            autoPlayInterval = setInterval(() => {
+                goToSlide(currentIndex + 1);
+            }, 8000); // muda a cada 8s
+        }
 
-    } // Fim do if (verificação do carrossel)
+        function restartAutoPlay() {
+            clearInterval(autoPlayInterval);
+            startAutoPlay();
+        }
 
-}); // Fim do 'DOMContentLoaded'
+        goToSlide(0);
+        startAutoPlay();
+    }
+
+}); // Fim do DOMContentLoaded
